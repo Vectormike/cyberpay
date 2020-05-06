@@ -3,7 +3,7 @@ name: CyberPay CI
 on: [push, pull_request]
 
 jobs:
-  build-node:
+  setup_and_build:
     runs-on: ubuntu-latest
 
     steps:
