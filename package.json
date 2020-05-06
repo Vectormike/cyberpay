@@ -11,9 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run serve",
-    "build": "npm run build-sass && npm run build-ts && npm run lint && npm run copy-static-assets",
-    "serve": "node dist/server.js",
-    "test": "jest --forceExit --coverage --verbose",
+    "build": "tsc && cp types.d.ts dist/ && cp package.json dist/ && cp README.md dist/ && cp LICENSE dist/",
+    "test": "npm run build && env KEY=",
     "watch-test": "npm run test -- --watchAll",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
