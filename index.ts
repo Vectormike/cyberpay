@@ -1,29 +1,30 @@
-import axios from "axios";
-import Transaction from "./resources/transaction";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import axios from 'axios';
+import Transaction from './resources/transaction';
 
 
 /**
  * @class CyberPay
  *
  * CyberPay wrapper for communicating with CyberPay's API.
- *  {@link https://merchant.cyberpay.ng/#/}
+ *  {@link https://payment-api.cyberpay.ng/api/v1/}
  *  {@link https: API Docs}
  */
 
- class CyberPay {
+class CyberPay {
     transaction= Transaction;
-
 
 
     /**
      *
      * @param options - integration key
      */
-    constructor(options: {integrationKey: string; businessName: string; businessCode: string}){
-        axios.defaults.headers.Authorization = `Bearer ${options.integrationKey}`;
-        axios.defaults.headers["Content-Type"]= "application/json";
-        axios.defaults.baseURL= "https://merchant.cyberpay.ng/#/";
+    constructor(options: {IntegrationKey: string}) {
+      axios.defaults.headers.Authorization = `Bearer ${options.IntegrationKey}`;
+      axios.defaults.headers['Content-Type'] = 'application/json';
+      axios.defaults.baseURL = 'https://merchant.cyberpay.ng/#/';
     }
- }
+}
 
- export default CyberPay;
+export default CyberPay;
