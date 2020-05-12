@@ -1,8 +1,5 @@
-import axios from "axios";
-
-
-
-
+import axios from 'axios';
+import * as util from '../util';
 
 /**
  * @class Transaction
@@ -13,10 +10,23 @@ import axios from "axios";
  */
 
 class Transaction {
+  static endpoint = '/payments';
 
-    /**
-     * List transactions
-     * @param {TransListOptions} options
+  /**
+     * Set up transaction
+     * @param {TransOptions} options
      */
+  static async setup(options: TransOptions) {
+    return util.getResponse(axios.post(`${this.endpoint}`, options));
+  }
+
+
+  /**
+     * Verify a transaction
+     * @param {TransOptions} options
+     */
+  static async verify(transactionReference: string) {
+    return util.getResponse(axios.get(`${this.endpoint}/${transactionReference}`));
+  }
 }
 export default Transaction;
