@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import axios from 'axios';
-import Transaction from './resources/transaction';
+import Payment from './resources/payment';
+import Subaccount from './resources/subaccount';
 
 
 /**
@@ -13,15 +14,17 @@ import Transaction from './resources/transaction';
  */
 
 class CyberPay {
-    transaction= Transaction;
+    payment= Payment;
+
+    subaccount = Subaccount
 
 
     /**
      *
      * @param options - integration key
      */
-    constructor(options: {IntegrationKey: string}) {
-      axios.defaults.headers.Authorization = `Bearer ${options.IntegrationKey}`;
+    constructor(options: {integrationKey: string}) {
+      axios.defaults.headers.Authorization = `Bearer ${options.integrationKey}`;
       axios.defaults.headers['Content-Type'] = 'application/json';
       axios.defaults.baseURL = 'https://merchant.cyberpay.ng/#/';
     }
