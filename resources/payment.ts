@@ -1,8 +1,10 @@
+/* eslint-disable import/extensions */
 import axios from 'axios';
+// eslint-disable-next-line import/no-unresolved
 import * as util from '../util';
 
 /**
- * @class Transaction
+ * @class Payment
  *
  * CyberPay wrapper for communicating with CyberPay's API.
  *  {@link https://merchant.cyberpay.ng/#/}
@@ -20,10 +22,36 @@ class Payment {
     return util.getResponse(axios.post(`${this.endpoint}`, options));
   }
 
+  /**
+     * Pay with token
+     * @param {PaymentWithTokenOptions} options
+     */
+  static async paywithtoken(options: PaymentWithTokenOptions) {
+    return util.getResponse(axios.post(`${this.endpoint}/paywithtoken`, options));
+  }
+
+
+  /**
+     * Pay with bank
+     * @param {PaymentWithBankOptions} options
+     */
+  static async paywithbank(options: PaymentWithBankOptions) {
+    return util.getResponse(axios.post(`${this.endpoint}/bank`, options));
+  }
+
+
+  /**
+     * Refund
+     * @param {transactionId} options
+     */
+  static async refund(transactionId: number) {
+    return util.getResponse(axios.get(`${this.endpoint}/refund/${transactionId}`));
+  }
+
 
   /**
      * Verify a transaction
-     * @param {PaymentOptions} options
+     * @param {transactionReference} options
      */
   static async verify(transactionReference: string) {
     return util.getResponse(axios.get(`${this.endpoint}/${transactionReference}`));
@@ -31,10 +59,19 @@ class Payment {
 
   /**
      * Create Payment Page
-     * @param {PaymentOptions} options
+     * @param {PaymentPageOptions} options
      */
   static async createpage(options: PaymentPageOptions) {
     return util.getResponse(axios.post(`${this.endpoint}/page/advice`, options));
+  }
+
+
+  /**
+     * Payment by Card
+     * @param {CardPaymentOptions} options
+     */
+  static async cardCharge(options: CardPaymentOptions) {
+    return util.getResponse(axios.post(`${this.endpoint}/card`, options));
   }
 }
 export default Payment;
