@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import axios from 'axios';
 import * as util from '../util';
 
@@ -6,7 +8,7 @@ import * as util from '../util';
  * @class Transaction
  *
  * CyberPay wrapper for communicating with CyberPay's API.
- *  {@link https://merchant.cyberpay.ng/#/}
+ *  {@link https://payment-api.cyberpay.ng/api/v1/}
  *  {@link https: API Docs}
  */
 

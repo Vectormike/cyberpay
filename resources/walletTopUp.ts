@@ -6,7 +6,7 @@ import * as util from '../util';
  * @class WalletTopUp
  *
  * CyberPay wrapper for communicating with CyberPay's API.
- *  {@link https://merchant.cyberpay.ng/#/}
+ *  {@link https://payment-api.cyberpay.ng/api/v1/}
  *  {@link https: API Docs}
  */
 
