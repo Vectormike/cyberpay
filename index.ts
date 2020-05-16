@@ -2,7 +2,8 @@
 /* eslint-disable import/extensions */
 import axios from 'axios';
 import Payment from './resources/payment';
-import Subaccount from './resources/subaccount';
+import Transaction from './resources/transaction';
+import WalletTopUp from './resources/walletTopUp';
 
 
 /**
@@ -16,8 +17,9 @@ import Subaccount from './resources/subaccount';
 class CyberPay {
     payment= Payment;
 
-    subaccount = Subaccount
+    transaction = Transaction;
 
+    walletTopUp = WalletTopUp
 
     /**
      *
