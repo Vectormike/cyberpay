@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as util from '../util';
 
+
 /**
  * @class Transaction
  *
@@ -10,23 +11,33 @@ import * as util from '../util';
  */
 
 class Transaction {
-  static endpoint = '/payments';
+    static endpoint = '/transactions';
 
-  /**
-     * Set up transaction
-     * @param {TransOptions} options
-     */
-  static async setup(options: TransOptions) {
-    return util.getResponse(axios.post(`${this.endpoint}`, options));
-  }
+    /**
+       * Get transaction by reference
+       * @param {TransactionsOptions} options
+       */
+    static async get(options: TransactionsOptions) {
+      return util.getResponse(axios.get(`${this.endpoint}`, { params: options }));
+    }
 
 
-  /**
-     * Verify a transaction
-     * @param {TransOptions} options
-     */
-  static async verify(transactionReference: string) {
-    return util.getResponse(axios.get(`${this.endpoint}/${transactionReference}`));
-  }
+    /**
+       * Get transaction by merchant reference
+       * @param {merchantRef} options
+       */
+    static async getByMerchantRef(merchantRef: string) {
+      return util.getResponse(axios.get(`${this.endpoint}/transactionbymerchantref/${merchantRef}`));
+    }
+
+
+    /**
+       * Get transaction by reference number
+       * @param {transactionNumber} options
+       */
+    static async getByTransactionRef(referenceNumber: string) {
+      return util.getResponse(axios.get(`${this.endpoint}/transactionsbyreference/${referenceNumber}`));
+    }
 }
+
 export default Transaction;
