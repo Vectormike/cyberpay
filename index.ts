@@ -4,6 +4,8 @@ import axios from 'axios';
 import Payment from './resources/payment';
 import Transaction from './resources/transaction';
 import WalletTopUp from './resources/walletTopUp';
+import Channels from './resources/channels';
+import Bank from './resources/bank';
 
 
 /**
@@ -20,6 +22,11 @@ class CyberPay {
     transaction = Transaction;
 
     walletTopUp = WalletTopUp
+
+    channels = Channels
+
+    bank = Bank
+
 
     /**
      *
