@@ -107,7 +107,7 @@ declare interface TransactionsOptions {
  declare interface WalletTopUpOptions {
      currency?: string,
      merchantRef: string,
-     amount: string,
+     amount: number,
      description?: string,
      customerName?: string,
      customerEmail?: string,
