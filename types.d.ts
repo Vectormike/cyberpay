@@ -122,3 +122,10 @@ declare interface TransactionsOptions {
      topUpWalletId: string,
      businessCode: string
  }
+
+ // Dashboard
+
+ declare interface DashboardOptions {
+     dateFrom: string,
+     dateTo: string
+ }
