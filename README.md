@@ -12,7 +12,8 @@ Nodejs API wrapper for [CyberPay](https://cyberpay.net.ng/).
 
 ### Installation
 
-```npm install cyberpay
+```
+npm install cyberpay
 ```
 
 ### Usage
