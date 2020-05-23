@@ -30,7 +30,7 @@ class Channels {
      *
      */
   static async getActive() {
-    return util.getResponse(axios.get(`${this.endpoint}`));
+    return util.getResponse(axios.get(`${this.endpoint}/active`));
   }
 }
 

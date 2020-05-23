@@ -20,7 +20,7 @@ class Banks {
      *
      */
   static async get() {
-    return util.getResponse(axios.get(`${this.endpoint}`));
+    return util.getResponse(axios.get(`${this.endpoint}/all`));
   }
 }
 
