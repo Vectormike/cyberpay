@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Official Node library for CyberPay",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Vectormike/cyberpay"
@@ -11,6 +12,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run serve",
+    "prepare": "npm run build",
     "build": "tsc && cp types.d.ts dist/ && cp package.json dist/ && cp README.md dist/ && cp LICENSE dist/",
     "test": "npm run build && env INTEGRATION_KEY=cad256a72281418680b021519ab14b62 mocha dist/test/\\*\\*/\\*.spec.js --timeout 15000 && rm -rf dist",
     "watch-test": "npm run test -- --watchAll",
