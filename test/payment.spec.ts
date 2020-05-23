@@ -20,7 +20,7 @@ describe('Transaction tests', () => {
   // Make Payment
   it('Set transacton', async () => {
     try {
-      const res = await cyberpay.payment.setup({
+      const res = await cyberpay.payment.pay({
         currency: 'NGN',
         amount,
         description: 'as discuss',

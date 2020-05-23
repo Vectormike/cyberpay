@@ -18,7 +18,7 @@ class Payment {
      * Set up transaction
      * @param {PaymentOptions} options
      */
-  static async setup(options: PaymentOptions) {
+  static async pay(options: PaymentOptions) {
     return util.getResponse(axios.post(`${this.endpoint}`, options));
   }
 
