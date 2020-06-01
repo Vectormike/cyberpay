@@ -36,6 +36,52 @@ describe('Transaction tests', () => {
     }
   });
 
+  // Pay with token
+  it('Pay with token', async () => {
+    try {
+      const res = await cyberpay.payment.paywithtoken({
+        amount,
+        splits: [{
+          amount
+        }]
+      });
+      assert.strictEqual(res.succeeded, true);
+      expect(res.data).to.have.property('transactionReference');
+    } catch (error) {
+      return error;
+    }
+  });
+
+  // Pay with bank
+  it('Pay wth bank', async () => {
+    try {
+      const res = await cyberpay.payment.paywithbank({
+        bankCode: faker.random.alphaNumeric(),
+        accountNumber: faker.finance.account(),
+        reference
+      });
+      assert.strictEqual(res.succeeded, true);
+    } catch (error) {
+      return error;
+    }
+  });
+
+
+  it('Pay wth card', async () => {
+    try {
+      const res = await cyberpay.payment.paywithcard({
+        expiryMonth: faker.date.month(),
+        expiryYear: '2020',
+        cardNumber: '555644454777899',
+        cvv: '160',
+        reference
+      });
+      assert.strictEqual(res.succeeded, true);
+    } catch (error) {
+      return error;
+    }
+  });
+
   // Verify a payment
   it('Get transaction', async () => {
     try {
