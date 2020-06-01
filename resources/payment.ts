@@ -30,6 +30,13 @@ class Payment {
     return util.getResponse(axios.post(`${this.endpoint}/paywithtoken`, options));
   }
 
+  /**
+     * Payment by Card
+     * @param {PaymentWithCardOptions} options
+     */
+  static async paywithcard(options: PaymentWithCardOptions) {
+    return util.getResponse(axios.post(`${this.endpoint}/card`, options));
+  }
 
   /**
      * Pay with bank
@@ -63,15 +70,6 @@ class Payment {
      */
   static async createpage(options: PaymentPageOptions) {
     return util.getResponse(axios.post(`${this.endpoint}/page/advice`, options));
-  }
-
-
-  /**
-     * Payment by Card
-     * @param {CardPaymentOptions} options
-     */
-  static async cardCharge(options: CardPaymentOptions) {
-    return util.getResponse(axios.post(`${this.endpoint}/card`, options));
   }
 }
 export default Payment;

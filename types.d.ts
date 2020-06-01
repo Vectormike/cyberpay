@@ -45,7 +45,7 @@ declare interface PaymentWithTokenOptions {
 declare interface PaymentWithBankOptions {
     bankCode: string,
     accountNumber: string,
-    referrence: string,
+    reference: string,
     accountName?: string,
     dateofBirth?: string,
     bvn?: string
@@ -60,10 +60,10 @@ declare interface PaymentPageOptions {
 }
 
 
-declare interface CardPaymentOptions {
+declare interface PaymentWithCardOptions {
     name?: string,
-    expiryMonth: number,
-    expiryYear: number,
+    expiryMonth?: number | string,
+    expiryYear?: number | string,
     cardNumber: string,
     cvv: string,
     otherInfo?: string,
