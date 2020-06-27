@@ -19,7 +19,15 @@ class Banks {
      * List of all banks integrated
      *
      */
-  static async get() {
+  static async getBanks() {
+    return util.getResponse(axios.get(`${this.endpoint}`));
+  }
+
+  /**
+     *
+     *
+     */
+  static async getAllBanks() {
     return util.getResponse(axios.get(`${this.endpoint}/all`));
   }
 }
