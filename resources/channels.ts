@@ -20,7 +20,7 @@ class Channels {
      * List all channels
      *
      */
-  static async get() {
+  static async fetchChannels() {
     return util.getResponse(axios.get(`${this.endpoint}`));
   }
 
@@ -29,7 +29,7 @@ class Channels {
      * List all active channels
      *
      */
-  static async getActive() {
+  static async fetchActiveChannels() {
     return util.getResponse(axios.get(`${this.endpoint}/active`));
   }
 }
