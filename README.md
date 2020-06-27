@@ -36,8 +36,6 @@ This library provides access to the CyberPay API from applications written in se
 - TSA
 - WalletTopUp
 
-
-
 ## Installation
 
 ```sh
@@ -47,6 +45,7 @@ yarn add cyberpay
 ```
 
 ## Usage
+
 This package requires configuration with your account's secret key in the [CyberPay Dahboard](https://cyberpay.net.ng/)
 
 Using ES modules and `async`/`await`:
@@ -73,8 +72,43 @@ try {
         // ...
     }
 }
-
 ```
+
+### Payment
+
+Operations relating to payment
+
+#### Payment with token
+
+`const response = await cyberpay.payment.paywithtoken(options);`
+
+#### Payment with card
+
+`const response = await cyberpay.payment.paywithtoken(options);`
+
+### Bank
+
+Activities has to do with basic information about banks integrated
+
+#### Get all integrated banks
+
+`const response = await cyberpay.bank();`
+
+### Channels
+
+Channels associated
+
+#### Retrieves active channels
+
+`const response = await cyberpay.fetchActiveChannels();`
+
+### Dashboard
+
+Display transactions on dashboard
+
+#### Display transactions by date
+
+`const response = await cyberpay.fetchTransactionsToDashboard(options);`
 
 
 ## Contributing
