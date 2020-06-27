@@ -31,6 +31,15 @@ class Payment {
   }
 
   /**
+     * Pay with token by charge
+     * @param
+     */
+  static async paywithtokencharge(reference: string) {
+    return util.getResponse(axios.post(`${this.endpoint}/paywithtoken/charge`));
+  }
+
+
+  /**
      * Payment by Card
      * @param {PaymentWithCardOptions} options
      */
@@ -57,7 +66,7 @@ class Payment {
 
 
   /**
-     * Verify a transaction
+     * Verify a payment
      * @param {transactionReference} options
      */
   static async verify(transactionReference: string) {
